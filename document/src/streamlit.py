@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 from io import StringIO
-from src.detector import DocumentDetector  # Import DocumentDetector
+from document.src.detector import DocumentDetector  # Import DocumentDetector
 import time
 
 # Helper function to get the latest messages from the chat
