@@ -23,6 +23,8 @@ document_detector = DocumentDetector(api_key="AIzaSyDcvOAujrOnkbMIIXMdajEeG229xz
 # Get text data and DataFrame from Admin page
 if "uploaded_files" not in st.session_state:
     st.session_state.uploaded_files = None
+
+    st.warning("No uploaded files yet.")
 uploaded_files = st.session_state.uploaded_files
 text_data, df, string_data = get_upload_file_type(uploaded_files)
 
@@ -68,6 +70,8 @@ if user_question := st.chat_input("Ask your question !!!"):
 
         # Display assistant response in chat message container
         with st.chat_message("Assistant"):
+            with st.spinner("Waiting for it..."):
+                time.sleep(2)
             message_placeholder = st.empty()
             full_response = ""
             assistance_response = (
@@ -88,10 +92,17 @@ if user_question := st.chat_input("Ask your question !!!"):
         st.error("Please upload a file before asking a question.")
 
 # Display full chat history in sidebar
-st.sidebar.subheader("Chat History:")
+st.sidebar.subheader("Users Management:")
 # chat_history = st.sidebar.empty()
 with st.sidebar:
-    for message in st.session_state.messages:
-        index = st.session_state.messages.index(message)
-        with st.expander(message["role"]):
-            st.write(f"**{message['role']}_{index}:** {message['content']}")
+    with st.expander("**View Chat History**"):
+        if "messages" not in st.session_state:
+            st.session_state.messages = [
+                {
+                    "role": "Assistant",
+                    "content": "Hello, I am your assistant. How can I help you?",
+                }
+            ]
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])

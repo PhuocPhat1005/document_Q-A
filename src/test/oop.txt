@@ -1,0 +1,33 @@
+# PROJECT DESIGN PATTERN
+
+------------------
+
+## RULES FOR PROJECT DESIGN PATTERN
+
+### 1. Requirement
+
+Each group choose two patterns:
+
+* A structural pattern : Adapter
+* A behavioral pattern : Mediator
+
+Present the patterns and record your presentation into video (duration: 10’ - 30’)
+
+### 2. Submission
+
+Save your project into a folder on your cloud (google drive or onedrive). The folder includes:
+
+* **Slide:** [group]-[mssvs].pptx or pdf
+* **Report:** [group]-[mssvs].docx or pdf
+* **Video:** [group]-[mssvs].mp4
+* **Source code**
+
+Group leader submit the link to the folder through Moodle.
+
+### 3. Assessment
+
+| Item    | Ratio |
+| ------- | ----- |
+| Content |  50%  |
+| Video   |  25%  |
+| Slide   |  25%  |
